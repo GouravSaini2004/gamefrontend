@@ -12,6 +12,7 @@ import GameTable from './component/table.jsx'
 import UserProfile from './pages/profile.jsx'
 import ContactUs from './pages/contectus.jsx'
 import TermsAndConditions from './pages/terms.jsx'
+import AboutUs from './pages/aboutus.jsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/contactUs' element={<ContactUs />} />
+      <Route path='/aboutUs' element={<AboutUs />} />
       <Route path='/termsAndConditions' element={<TermsAndConditions />} />
       {/* <Route path='/profile' element={<ProtectedRoute element={<UserProfile />} />} /> */}
       <Route path='/addgame'  element={<ProtectedRoute element={<AddGame />} />} />

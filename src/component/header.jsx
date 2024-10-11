@@ -32,6 +32,7 @@ function Header() {
                                         <li><Link to="/profile">Account</Link></li>
                                         <li><Link to="/termsAndConditions">Terms & Condition</Link></li>
                                         <li><Link to="/contactUs">ContactUs</Link></li>
+                                        <li><Link to="/aboutUs">AboutUs</Link></li>
                                         {use.role === 'admin' && (
                                             <>
                                                 <li><Link to="/addgame">Add Game</Link></li>
@@ -46,6 +47,7 @@ function Header() {
                                         <li><Link to="/register">Register</Link></li>
                                         <li><Link to="/termsAndConditions">Terms & Condition</Link></li>
                                         <li><Link to="/contactUs">ContactUs</Link></li>
+                                        <li><Link to="/aboutUs">AboutUs</Link></li>
                                     </>
                                 )}
                             </ul>
