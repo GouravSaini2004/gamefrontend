@@ -28,26 +28,26 @@ function Header() {
                             <ul>
                                 {use && Object.keys(use).length > 0 ? (
                                     <>
-                                        <li><Link to="/">Home</Link></li>
-                                        <li><Link to="/profile">Account</Link></li>
-                                        <li><Link to="/termsAndConditions">Terms & Condition</Link></li>
-                                        <li><Link to="/contactUs">ContactUs</Link></li>
-                                        <li><Link to="/aboutUs">AboutUs</Link></li>
+                                        <li><Link to="/" onClick={toggleActive}>Home</Link></li>
+                                        <li><Link to="/profile" onClick={toggleActive}>Account</Link></li>
+                                        <li><Link to="/termsAndConditions" onClick={toggleActive}>Terms & Condition</Link></li>
+                                        <li><Link to="/contactUs" onClick={toggleActive}>ContactUs</Link></li>
+                                        <li><Link to="/aboutUs" onClick={toggleActive}>AboutUs</Link></li>
                                         {use.role === 'admin' && (
                                             <>
-                                                <li><Link to="/addgame">Add Game</Link></li>
-                                                <li><Link to="/table">Table</Link></li>
+                                                <li><Link to="/addgame" onClick={toggleActive}>Add Game</Link></li>
+                                                <li><Link to="/table" onClick={toggleActive}>Table</Link></li>
                                             </>
                                         )}
                                     </>
                                 ) : (
                                     <>
-                                        <li><Link to="/">Home</Link></li>
-                                        <li><Link to="/login">Login</Link></li>
-                                        <li><Link to="/register">Register</Link></li>
-                                        <li><Link to="/termsAndConditions">Terms & Condition</Link></li>
-                                        <li><Link to="/contactUs">ContactUs</Link></li>
-                                        <li><Link to="/aboutUs">AboutUs</Link></li>
+                                        <li><Link to="/" onClick={toggleActive}>Home</Link></li>
+                                        <li><Link to="/login" onClick={toggleActive}>Login</Link></li>
+                                        <li><Link to="/register" onClick={toggleActive}>Register</Link></li>
+                                        <li><Link to="/termsAndConditions" onClick={toggleActive}>Terms & Condition</Link></li>
+                                        <li><Link to="/contactUs" onClick={toggleActive}>ContactUs</Link></li>
+                                        <li><Link to="/aboutUs" onClick={toggleActive}>AboutUs</Link></li>
                                     </>
                                 )}
                             </ul>
