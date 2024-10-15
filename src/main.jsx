@@ -13,6 +13,7 @@ import UserProfile from './pages/profile.jsx';
 import ContactUs from './pages/contectus.jsx';
 import TermsAndConditions from './pages/terms.jsx';
 import AboutUs from './pages/aboutus.jsx';
+import ForgetPasswordForm from './pages/forgotpassword.jsx';
 
 function Main() {
   return (
@@ -29,6 +30,7 @@ function Main() {
         <Route path="/apply/:id" element={<CompetitionForm />} />
         <Route path="/table" element={<GameTable />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/forgot" element={<ForgetPasswordForm />} />
       </Routes>
     </HashRouter>
   );

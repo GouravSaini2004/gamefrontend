@@ -101,7 +101,9 @@ function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </label>
+                        <div className='text-white flex justify-end pr-5 underline'><Link to={'/forgot'}>forgot password</Link></div>
                     </div>
+                    
                     <div className='bg-green-950 w-4/5 rounded-3xl'>
                         <button onClick={handleSubmit} className="btn btn-active btn-secondary w-full h-full text-3xl hover:bg-blue-900">{loading ? "Submiting..." : "Submit"}</button>
                     </div>
