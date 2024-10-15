@@ -124,10 +124,10 @@ const CompetitionForm = () => {
 
         <div className="mb-2">
           <label className="block text-white text-2xl font-bold mb-2" htmlFor="email">
-            Name
+            Email
           </label>
           <input
-            type="text"
+            type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
