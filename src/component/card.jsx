@@ -148,7 +148,7 @@ function Card() {
                             </div>
                         ))
                     ) : (
-                        <div className="text-white text-center">No active tournaments available.</div>
+                        <div className="text-white text-center">No active tournaments available.Coming Soon.....</div>
                     )}
                 </div>
             </div>
