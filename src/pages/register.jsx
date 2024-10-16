@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
+import { BiSolidShow } from "react-icons/bi";
+import { BiSolidHide } from "react-icons/bi";
 
 function Register() {
     const [email, setEmail] = useState('');
@@ -9,6 +11,7 @@ function Register() {
     const [name, setName] = useState("");
     const [loading, setLoading] = useState(false);
     const [mail, setMail] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleRegister = async () => {
@@ -30,7 +33,7 @@ function Register() {
                 return;
             }
 
-            
+
             if (response.ok && data.success) {
                 setMail(true); // Set mail to true to show the verification message
                 alert(data.msg);
@@ -95,12 +98,19 @@ function Register() {
                                 <div className='bg-green-950 h-12 w-4/5 rounded-3xl'>
                                     <label className="input input-bordered flex items-center gap-2 h-full overflow-hidden">
                                         <input
-                                            type="password"
+                                            type={showPassword ? "text" : "password"}
                                             className="grow"
                                             placeholder="Password"
                                             required
                                             onChange={(e) => setPassword(e.target.value)}
                                         />
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                            className="focus:outline-none"
+                                        >
+                                            {showPassword ? <BiSolidHide /> : <BiSolidShow />}
+                                        </button>
                                     </label>
                                 </div>
                                 <div className='bg-green-950 w-4/5 rounded-3xl'>

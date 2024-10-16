@@ -7,10 +7,10 @@ const AboutUs = () => {
         <div className="font-sans bg-gray-100 p-6 text-black">
             <h2 className="text-2xl font-bold">About Us!</h2>
             <h2 className="text-center text-xl mt-4">
-                Welcome To <span className="font-semibold">Gamekarao.vercel.app</span>
+                Welcome To <span className="font-semibold">gamekarao.onrender.com</span>
             </h2>
             <p className="mt-4">
-                <span className="font-semibold">Gamekarao.vercel.app</span> is a Professional <span className="font-semibold">e-sports</span> Platform. 
+                <span className="font-semibold">gamekarao.onrender.com</span> is a Professional <span className="font-semibold">e-sports</span> Platform. 
                 Here we will only provide you with interesting content that you will enjoy very much. We are committed to providing you the best of 
                 <span className="font-semibold"> e-sports</span>, with a focus on reliability and <span className="font-semibold">apply for online mobile game competition</span>. 
                 We strive to turn our passion for <span className="font-semibold">e-sports</span> into a thriving website. We hope you enjoy our 

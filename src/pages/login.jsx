@@ -1,13 +1,16 @@
 // import React from 'react';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import {Link} from "react-router-dom"
-import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom"
+import { BiSolidShow } from "react-icons/bi";
+import { BiSolidHide } from "react-icons/bi";
+
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -36,12 +39,12 @@ function Login() {
                 setLoading(false)
             }
 
-            
+
             // console.log(data)
 
 
             if (response.ok && data.success) {
-                
+
                 // console.log(data.userWithoutSensitiveData, data.msg)
                 localStorage.setItem('user', JSON.stringify(data.userWithoutSensitiveData));
                 alert(data.msg)
@@ -49,14 +52,14 @@ function Login() {
                 setLoading(false)
                 // Handle successful login, e.g., redirect or save user data
             } else {
-               alert(data.msg);
-               setLoading(false)
+                alert(data.msg);
+                setLoading(false)
             }
         } catch (error) {
             // console.error("Error during login:", error);
             setLoading(false)
             alert(error.message)
-           
+
         }
     };
 
@@ -81,7 +84,7 @@ function Login() {
                     <h1 className='text-white text-center text-5xl font-bold'>LOGIN</h1>
                     <div className='bg-green-950 h-12 w-4/5 rounded-3xl'>
                         <label className="input input-bordered flex items-center gap-2 h-full overflow-hidden">
-                            
+
                             <input
                                 type="email"
                                 className="grow"
@@ -93,18 +96,28 @@ function Login() {
                     </div>
                     <div className='bg-green-950 h-12 w-4/5 rounded-3xl'>
                         <label className="input input-bordered flex items-center gap-2 h-full overflow-hidden">
-                            
+
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 className="grow"
                                 placeholder="password"
                                 required
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="focus:outline-none"
+                            >
+                                {showPassword ? <BiSolidHide /> : <BiSolidShow />}
+                            </button>
+
+                           
+
                         </label>
                         <div className='text-white flex justify-end pr-5 underline'><Link to={'/forgot'}>forgot password</Link></div>
                     </div>
-                    
+
                     <div className='bg-green-950 w-4/5 rounded-3xl'>
                         <button onClick={handleSubmit} className="btn btn-active btn-secondary w-full h-full text-3xl hover:bg-blue-900">{loading ? "Submiting..." : "Submit"}</button>
                     </div>

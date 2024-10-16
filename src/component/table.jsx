@@ -26,7 +26,7 @@ const GameTable = () => {
     const fetchUser = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`http://localhost:4001/player/get_players`);
+        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_players`);
         const data = await response.json();
         // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
@@ -43,7 +43,7 @@ const GameTable = () => {
 
       } catch (err) {
         // setError(err.message || "Error fetching user data.");
-        alert("check internet connection, request not sent")
+        alert("check internet connection, request not sent",data.msg)
       } finally {
         setLoading(false);
       }
