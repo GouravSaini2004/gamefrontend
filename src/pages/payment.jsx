@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom"
+import payment from '../assets/payment.jpg'
 
 const PaymentPage = () => {
   const [gameId, setGameId] = useState('');
@@ -71,13 +72,15 @@ const PaymentPage = () => {
             <br />
             5. If you lost this page. So, go to <Link to={'/profile'} className='text-blue-600 underline pl-1'>Profile</Link> and click on payment button.
             <br />
-            6. In case you face any issues during the payment process, please visit our 
+            6. After successful payment, your payment status approvel will take maximum 24 hrs.
+            <br />
+            7. In case you face any issues during the payment process, please visit our 
             <Link to="/contactUs" className="text-blue-600 underline pl-2">Contact Us</Link> page for support.
           </p>
         </div>
         <div className="flex justify-center mb-6">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAwezRRmbnUqJh9gH3bwbnIJjt7l5nCj21sA&s" // Replace with your QR code image URL
+            src={payment} // Replace with your QR code image URL
             alt="QR Code"
             className="w-40 h-40 object-contain"
           />
