@@ -25,7 +25,7 @@ const GameTable = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        setLoading(true)
+        // setLoading(true)
         const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_player`);
 
         // Check if the response is ok (status in the range 200-299)
