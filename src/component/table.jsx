@@ -29,26 +29,24 @@ const GameTable = () => {
         const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_player`);
 
         // Check if the response is ok (status in the range 200-299)
-        const data = await response.json();
         if (!response.ok) {
-          alert(data.msg)
-          setLoading(false)
-        }
-        if(data.success){
-          const sortedData = data && data.participants.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-          setUser(sortedData);
-          setLoading(false)
-        }
-        else{
-          alert(data.msg)
-          setLoading(false)
+          // throw new Error('Failed to fetch user data');
+          alert("response not okk check internet connection")
         }
 
+        // console.log(response)
+        const data = await response.json();
+
+        // console.log(data)
+        const sortedData = data && data.participants.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setUser(sortedData);
+
       } catch (err) {
-        
-        alert(data.msg)
-        setLoading(false)
-      } 
+        setError(err.message || "Error fetching user data.");
+        alert("check internet connection, request not sent")
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchUser();
@@ -87,13 +85,11 @@ const GameTable = () => {
       }
       catch(err){
         alert("request not sent")
-        setLoading(false)
       }
     
     
     // Implement your logic here, like updating state or sending a request to the server
   };
-
   
   const filteredData = Array.isArray(user) ? user.filter(item => {
     const matchesSearchTerm =
