@@ -21,7 +21,7 @@ const CompetitionForm = () => {
     // This could be used to clear messages or check for login state when the component mounts
     const userData = localStorage.getItem('user'); // Adjust the key as needed
     if (!userData) {
-      navigate("/");
+      navigate("/login");
     }
   }, [navigate]);
 
