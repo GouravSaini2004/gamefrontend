@@ -22,6 +22,38 @@ const GameTable = () => {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_player`);
+
+        // Check if the response is ok (status in the range 200-299)
+        const data = await response.json();
+        if (!response.ok) {
+          alert(data.msg)
+          setLoading(false)
+        }
+        if(data.success){
+          const sortedData = data && data.participants.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          setUser(sortedData);
+          setLoading(false)
+        }
+        else{
+          alert(data.msg)
+          setLoading(false)
+        }
+
+      } catch (err) {
+        
+        alert(data.msg)
+        setLoading(false)
+      } 
+    };
+
+    fetchUser();
+  }, []);
+
   const handleStatusChange = async (itemId, newStatus) => {
     // Update the status in your state or make an API call
     // console.log(`Updated item ID: ${itemId}, New Status: ${newStatus}`)
@@ -55,43 +87,12 @@ const GameTable = () => {
       }
       catch(err){
         alert("request not sent")
+        setLoading(false)
       }
     
     
     // Implement your logic here, like updating state or sending a request to the server
   };
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        setLoading(true)
-        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_player`);
-
-        // Check if the response is ok (status in the range 200-299)
-        const data = await response.json();
-        if (!response.ok) {
-          alert(data.msg)
-          setLoading(false)
-        }
-        if(data.success){
-          const sortedData = data && data.participants.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-          setUser(sortedData);
-          setLoading(false)
-        }
-        else{
-          alert(data.msg)
-          setLoading(false)
-        }
-
-      } catch (err) {
-        
-        alert(data.msg)
-        setLoading(false)
-      } 
-    };
-
-    fetchUser();
-  }, [handleStatusChange]);
 
   
   const filteredData = Array.isArray(user) ? user.filter(item => {
