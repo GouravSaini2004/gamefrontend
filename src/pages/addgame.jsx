@@ -113,7 +113,7 @@ const AddGame = () => {
         <div className="mb-4">
           <label className="block mb-2 text-white" htmlFor="date">Date:</label>
           <input
-            type="date"
+            type="datetime-local"
             name="gameDate"
             id="date"
             value={gameDetails.gameDate}
