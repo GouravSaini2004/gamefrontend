@@ -10,19 +10,27 @@ function Card() {
     const data = localStorage.getItem('user');
     const use = JSON.parse(data);
 
-    const formatDateTime = (date) => {
+    const formatDateTimeWithAMPM = (date) => {
+        // Check if 'date' is an instance of Date and is a valid date
         if (!(date instanceof Date) || isNaN(date)) {
-            throw new Error('Invalid Date');
+            console.error('Invalid Date passed to formatDateTimeWithAMPM');
+            return 'Invalid Date'; // Return a message if the date is invalid
         }
     
-        const day = String(date.getDate()).padStart(2, '0'); // Get day and pad with 0
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Get month (0-11) and pad with 0
-        const year = date.getFullYear().toString().slice(-2); // Get last two digits of the year
-        const hours = String(date.getHours()).padStart(2, '0'); // Get hours and pad with 0
-        const minutes = String(date.getMinutes()).padStart(2, '0'); // Get minutes and pad with 0
+        const day = String(date.getDate()).padStart(2, '0'); 
+        const month = String(date.getMonth() + 1).padStart(2, '0'); 
+        const year = date.getFullYear().toString().slice(-2);
     
-        return `${day}/${month}/${year}, ${hours}:${minutes}`; // Return formatted string
+        let hours = date.getHours(); 
+        const minutes = String(date.getMinutes()).padStart(2, '0'); 
+        const ampm = hours >= 12 ? 'PM' : 'AM'; 
+    
+        hours = hours % 12; 
+        hours = hours ? String(hours).padStart(2, '0') : '12'; 
+    
+        return `${day}/${month}/${year}, ${hours}:${minutes} ${ampm}`;
     };
+    
 
     const toggleStatus = async (gameId) => {
         setLoadingUpdate(true);
@@ -103,7 +111,7 @@ function Card() {
                                     <h2 className="card-title text-white">{item.gameTitle}</h2>
                                     <div className='flex flex-col gap-2 text-white w-full'>
                                         <div className='bg-violet-900 text-white p-1 rounded-lg w-full'>
-                                            <p>Time: {formatDateTime(item.gameDate)}</p>
+                                            <p>Time: {formatDateTimeWithAMPM(item.gameDate)}</p>
                                         </div>
                                         <div className='flex flex-col gap-1'>
                                             <div className='flex justify-between gap-2 bg-violet-800 rounded-lg p-1'>
@@ -161,7 +169,7 @@ function Card() {
                             <div className="card-body items-center text-center w-full">
                                 <h2 className="card-title text-white">{item.gameTitle}</h2>
                                 <div className='flex flex-col gap-2 text-white w-full'>
-                                    <div className='bg-violet-900 text-white p-1 rounded-lg w-full'><p>{formatDateTime(item.gameDate)}</p></div>
+                                    <div className='bg-violet-900 text-white p-1 rounded-lg w-full'><p>{formatDateTimeWithAMPM(item.gameDate)}</p></div>
                                     {use && use.role === "admin" && (
                                         <div className='bg-orange-700 text-white p-1 rounded-lg'><button>Delete</button></div>
                                     )
