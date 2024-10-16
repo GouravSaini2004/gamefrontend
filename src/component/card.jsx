@@ -10,6 +10,15 @@ function Card() {
     const data = localStorage.getItem('user');
     const use = JSON.parse(data);
 
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp);
+        const day = String(date.getDate()).padStart(2, '0'); // Get day and pad with zero if needed
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const year = String(date.getFullYear()).slice(-2); // Get last two digits of the year
+
+        return `${day}/${month}/${year}`; // Format as dd/mm/yy
+    };
+
     const toggleStatus = async (gameId) => {
         setLoadingUpdate(true);
         try {
@@ -89,7 +98,7 @@ function Card() {
                                     <h2 className="card-title text-white">{item.gameTitle}</h2>
                                     <div className='flex flex-col gap-2 text-white w-full'>
                                         <div className='bg-violet-900 text-white p-1 rounded-lg w-full'>
-                                            <p>Time: {new Date(item.gameDate).toLocaleString()}</p>
+                                            <p>Time: {formatDate(item.gameDate)}</p>
                                         </div>
                                         <div className='flex flex-col gap-1'>
                                             <div className='flex justify-between gap-2 bg-violet-800 rounded-lg p-1'>
@@ -133,34 +142,34 @@ function Card() {
                 </div>
             </div>
             <div className='bg-indigo-950 p-5'>
-            <h1 className='text-white pb-1 text-center text-4xl font-bold'>Completed Tournaments</h1>
-            {/* <p className='text-white pb-8 pt-0 text-center text-xl'>Find the perfect taurnaments for you.</p> */}
-            <div className='flex flex-wrap justify-center gap-5'>
-                {cards && cards.length > 0 && cards.map((item) => (
-                    <div key={item._id} className="card w-96 shadow-xl">
-                        <figure className="px-5 pt-5">
-                            <img
-                                src={item.gameImage}
-                                alt="Shoes"
-                                className="rounded-xl" />
-                        </figure>
-                        <div className="card-body items-center text-center w-full">
-                            <h2 className="card-title text-white">{item.gameTitle}</h2>
-                            <div className='flex flex-col gap-2 text-white w-full'>
-                                <div className='bg-violet-900 text-white p-1 rounded-lg w-full'><p>{new Date(item.gameDate).toLocaleString()}</p></div>
-                                {use && use.role === "admin" && (
-                                    <div className='bg-orange-700 text-white p-1 rounded-lg'><button>Delete</button></div>
-                                )
-                                }
-                                
+                <h1 className='text-white pb-1 text-center text-4xl font-bold'>Completed Tournaments</h1>
+                {/* <p className='text-white pb-8 pt-0 text-center text-xl'>Find the perfect taurnaments for you.</p> */}
+                <div className='flex flex-wrap justify-center gap-5'>
+                    {cards && cards.length > 0 && cards.map((item) => (
+                        <div key={item._id} className="card w-96 shadow-xl">
+                            <figure className="px-5 pt-5">
+                                <img
+                                    src={item.gameImage}
+                                    alt="Shoes"
+                                    className="rounded-xl" />
+                            </figure>
+                            <div className="card-body items-center text-center w-full">
+                                <h2 className="card-title text-white">{item.gameTitle}</h2>
+                                <div className='flex flex-col gap-2 text-white w-full'>
+                                    <div className='bg-violet-900 text-white p-1 rounded-lg w-full'><p>{formatDate(item.gameDate)}</p></div>
+                                    {use && use.role === "admin" && (
+                                        <div className='bg-orange-700 text-white p-1 rounded-lg'><button>Delete</button></div>
+                                    )
+                                    }
 
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
 
+                </div>
             </div>
-        </div>
         </>
     );
 }
