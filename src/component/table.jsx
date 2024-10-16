@@ -25,24 +25,24 @@ const GameTable = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        // setLoading(true)
-        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_player`);
-
+        setLoading(true)
+        const response = await fetch(`http://localhost:4001/player/get_players`);
+        const data = await response.json();
         // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
           // throw new Error('Failed to fetch user data');
-          alert("response not okk check internet connection")
+          alert(data.msg)
         }
 
-        // console.log(response)
-        const data = await response.json();
+        console.log(response)
+        
 
-        // console.log(data)
+        console.log(data)
         const sortedData = data && data.participants.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setUser(sortedData);
 
       } catch (err) {
-        setError(err.message || "Error fetching user data.");
+        // setError(err.message || "Error fetching user data.");
         alert("check internet connection, request not sent")
       } finally {
         setLoading(false);
