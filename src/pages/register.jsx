@@ -21,6 +21,7 @@ function Register() {
                 },
                 body: JSON.stringify({ email, password, name }),
             });
+            const data = await response.json();
 
             if (!response.ok) {
                 setLoading(false);
@@ -29,7 +30,7 @@ function Register() {
                 return;
             }
 
-            const data = await response.json();
+            
             if (response.ok && data.success) {
                 setMail(true); // Set mail to true to show the verification message
                 alert(data.msg);

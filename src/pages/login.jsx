@@ -29,13 +29,14 @@ function Login() {
                 },
                 body: JSON.stringify({ email, password }),
             });
+            const data = await response.json();
 
             if (!response.ok) {
-                // alert("enter all field")
+                alert(data.msg)
                 setLoading(false)
             }
 
-            const data = await response.json();
+            
             // console.log(data)
 
 

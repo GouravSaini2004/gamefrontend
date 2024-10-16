@@ -86,14 +86,14 @@ const CompetitionForm = () => {
         },
         body: JSON.stringify(formData),
       });
-
+      const data = await response.json();
       // Check if the response is ok (status in the range 200-299)
       if (!response.ok) {
-        alert("some error enter all field");
+        alert(data.msg);
         setLoading(false)
       }
 
-      const data = await response.json();
+      
       // console.log('Response from server:', data);
 
       // Optionally, you can reset the form or provide user feedback

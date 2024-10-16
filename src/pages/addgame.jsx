@@ -45,14 +45,16 @@ const AddGame = () => {
         body: JSON.stringify(gameDetails),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        // alert("some error enter all field")
+        alert(result.msg)
         setLoading(false)
       }
-      const result = await response.json();
+      
       if(result.success){
         setLoading(false)
-        // alert(result.msg)
+        alert(result.msg)
         setGameDetails({
           gameTitle: '',
           gameImage: '',
