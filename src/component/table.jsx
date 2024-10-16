@@ -79,6 +79,7 @@ const GameTable = () => {
         // console.log(data)
         const sortedData = data && data.participants.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setUser(sortedData);
+        setLoading(false)
 
       } catch (err) {
         setError(err.message || "Error fetching user data.");
