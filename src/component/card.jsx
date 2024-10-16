@@ -147,7 +147,7 @@ function Card() {
                         <div className="card-body items-center text-center w-full">
                             <h2 className="card-title text-white">{item.gameTitle}</h2>
                             <div className='flex flex-col gap-2 text-white w-full'>
-                                <div className='bg-violet-900 text-white p-1 rounded-lg w-full'><p>{item.gameDate}</p></div>
+                                <div className='bg-violet-900 text-white p-1 rounded-lg w-full'><p>{new Date(item.gameDate).toLocaleString()}</p></div>
                                 {use && use.role === "admin" && (
                                     <div className='bg-orange-700 text-white p-1 rounded-lg'><button>Delete</button></div>
                                 )
