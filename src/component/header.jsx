@@ -37,6 +37,7 @@ function Header() {
                                             <>
                                                 <li><Link to="/addgame" onClick={toggleActive}>Add Game</Link></li>
                                                 <li><Link to="/table" onClick={toggleActive}>Table</Link></li>
+                                                <li><Link to="/card" onClick={toggleActive}>Card</Link></li>
                                             </>
                                         )}
                                     </>

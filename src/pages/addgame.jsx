@@ -18,9 +18,9 @@ const AddGame = () => {
     const userData = localStorage.getItem('user'); // Adjust the key as needed
     if (userData) {
       const use = JSON.parse(userData);
-      if(use.role === "user") navigate("/");
-        // setIsAuthenticated(true);
-        
+      if(use.role === "user") navigate("/");    
+    }else{
+      navigate("/login")
     }
 }, [navigate]);
 

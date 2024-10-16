@@ -67,15 +67,16 @@ const ContactUs = () => {
                         required
                         className="w-full p-2 border border-gray-300 rounded text-black"
                     />
+                    <p className='text-red-700'>! Please enter email carefully, otherwise we can not connect with you.</p>
                     <textarea
                         name="comment"
                         value={formData.comment}
                         onChange={handleChange}
-                        placeholder="Your Comment"
+                        placeholder="Your Problem"
                         required
                         className="w-full p-2 border border-gray-300 rounded text-black"
                     />
-                    <label className="flex items-center">
+                    {/* <label className="flex items-center">
                         <input
                             type="checkbox"
                             name="subscribe"
@@ -84,7 +85,7 @@ const ContactUs = () => {
                             className="mr-2"
                         />
                         Subscribe to newsletter
-                    </label>
+                    </label> */}
                     <div className="flex space-x-4">
                         <label className="flex items-center">
                             <input

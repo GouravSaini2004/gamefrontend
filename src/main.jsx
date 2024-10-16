@@ -14,6 +14,8 @@ import ContactUs from './pages/contectus.jsx';
 import TermsAndConditions from './pages/terms.jsx';
 import AboutUs from './pages/aboutus.jsx';
 import ForgetPasswordForm from './pages/forgotpassword.jsx';
+import PaymentPage from './pages/payment.jsx';
+import CardsPage from './pages/see.jsx';
 
 function Main() {
   return (
@@ -31,6 +33,8 @@ function Main() {
         <Route path="/table" element={<GameTable />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/forgot" element={<ForgetPasswordForm />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/card" element={<CardsPage />} />
       </Routes>
     </HashRouter>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Ensure you import useParams
+import { Link, useParams } from 'react-router-dom'; // Ensure you import useParams
 import { useNavigate } from 'react-router-dom';
 const CompetitionForm = () => {
   const { id } = useParams();
@@ -16,6 +16,14 @@ const CompetitionForm = () => {
     gameTitle: '', // This will be set after fetching
   });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // This could be used to clear messages or check for login state when the component mounts
+    const userData = localStorage.getItem('user'); // Adjust the key as needed
+    if (!userData) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const fetchGame = async () => {
@@ -58,9 +66,17 @@ const CompetitionForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
+    // if (phoneNumber.length !== 10) {
+    //   setLoading(false)
+    //   alert('Phone number must be 10 digits long.');
+      
+    //   return;
+    // }
     try {
       // Send formData to the API
       const response = await fetch('https://gamingbackend-dkf6.onrender.com/player/add_player', {
@@ -73,7 +89,7 @@ const CompetitionForm = () => {
 
       // Check if the response is ok (status in the range 200-299)
       if (!response.ok) {
-        // alert("some error enter all field");
+        alert("some error enter all field");
         setLoading(false)
       }
 
@@ -82,7 +98,7 @@ const CompetitionForm = () => {
 
       // Optionally, you can reset the form or provide user feedback
       if (data.success) {
-        // alert(data.msg);
+        alert(data.msg);
         setFormData({
           email: '',
           phoneNumber: '',
@@ -91,7 +107,7 @@ const CompetitionForm = () => {
           gameTitle: '',
         });
         setLoading(false)
-        navigate('/')
+        navigate('/payment')
       }else{
         setLoading(false)
         alert(data.msg)
@@ -165,15 +181,16 @@ const CompetitionForm = () => {
             className="shadow appearance-none border rounded text-2xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Game ID"
           />
+          <p className="text-red-500 text-sm mt-1">! Please Enter GameID Carefully.</p>
         </div>
 
         <div className="flex items-center justify-center">
           <button
-            type="submit"
+            type="submit" 
             className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
           >
             {loading ? "Submiting..." : "Submit Application"}
-          </button>
+          </button >
         </div>
       </form>
     </div>
