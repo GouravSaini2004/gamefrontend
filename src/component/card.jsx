@@ -115,7 +115,7 @@ function Card() {
                                             <div className='flex justify-between gap-2 bg-violet-800 rounded-lg p-1'>
                                                 <div className='border rounded border-gray-400 w-full'>
                                                     <p className='font-bold'>Entry/Player</p>
-                                                    <p className='text-sky-500 font-bold'>{item.fees} Rupess</p>
+                                                    <p className='text-sky-500 font-bold'>{item.fees} Rs</p>
                                                 </div>
                                                 <div className='border rounded border-gray-400 w-full'>
                                                     <p className='font-bold'>Max Player</p>
@@ -124,8 +124,8 @@ function Card() {
                                             </div>
                                             <div className='flex justify-between gap-2 bg-violet-800 rounded-lg p-1'>
                                                 <div className='border rounded border-gray-400 w-full'>
-                                                    <p className='font-bold'>Enrolled</p>
-                                                    <p className='text-sky-500 font-bold'>25</p> {/* Replace with actual data if available */}
+                                                    <p className='font-bold'>Winning Price</p>
+                                                    <p className='text-sky-500 font-bold'>{item.price} Rs</p> {/* Replace with actual data if available */}
                                                 </div>
                                                 <div className='border rounded border-gray-400 w-full'>
                                                     <p className='font-bold'>Team Size</p>
@@ -153,7 +153,7 @@ function Card() {
                 </div>
             </div>
             <div className='bg-indigo-950 p-5'>
-                <h1 className='text-white pb-1 text-center text-4xl font-bold'>Completed Tournaments</h1>
+                <h1 className='text-white pb-1 text-center text-4xl font-bold'>Hosted Tournaments</h1>
                 {/* <p className='text-white pb-8 pt-0 text-center text-xl'>Find the perfect taurnaments for you.</p> */}
                 <div className='flex flex-wrap justify-center gap-5'>
                     {cards && cards.length > 0 && cards.map((item) => (
@@ -168,6 +168,16 @@ function Card() {
                                 <h2 className="card-title text-white">{item.gameTitle}</h2>
                                 <div className='flex flex-col gap-2 text-white w-full'>
                                     <div className='bg-violet-900 text-white p-1 rounded-lg w-full'><p>{formatDateTime(item.gameDate)}</p></div>
+                                    <div className='flex justify-between gap-2 bg-violet-800 rounded-lg p-1'>
+                                                <div className='border rounded border-gray-400 w-full'>
+                                                    <p className='font-bold'>Entry/Player</p>
+                                                    <p className='text-sky-500 font-bold'>{item.fees} Rs</p>
+                                                </div>
+                                                <div className='border rounded border-gray-400 w-full'>
+                                                    <p className='font-bold'>Winning Price</p>
+                                                    <p className='text-sky-500 font-bold'>1000 Rs</p>
+                                                </div>
+                                            </div>
                                     {use && use.role === "admin" && (
                                         <div className='bg-orange-700 text-white p-1 rounded-lg'><button>Delete</button></div>
                                     )

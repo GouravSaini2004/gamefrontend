@@ -37,7 +37,7 @@ const AddGame = () => {
     setLoading(true)
 
     try {
-      const response = await fetch('https://gamingbackend-dkf6.onrender.com/game/add_game', {
+      const response = await fetch('http://localhost:4001/game/add_game', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,6 +62,7 @@ const AddGame = () => {
           teamSize: '',
           fees: '',
           maxPlayers: '',
+          price: '',
         });
         navigate('/')
       }else{
@@ -129,6 +130,18 @@ const AddGame = () => {
             name="teamSize"
             id="teamSize"
             value={gameDetails.teamSize}
+            onChange={handleChange}
+            required
+            className="w-full p-2 rounded"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-white" htmlFor="price">Price:</label>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            value={gameDetails.price}
             onChange={handleChange}
             required
             className="w-full p-2 rounded"
