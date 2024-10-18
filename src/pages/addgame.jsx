@@ -37,7 +37,7 @@ const AddGame = () => {
     setLoading(true)
 
     try {
-      const response = await fetch('http://localhost:4001/game/add_game', {
+      const response = await fetch('https://gamekarao.onrender.com/game/add_game', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
