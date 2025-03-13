@@ -24,7 +24,7 @@ const PaymentPage = () => {
     formData.append('image', image); // Adding the image file to formData
 
     try {
-      const response = await fetch('https://gamingbackend-dkf6.onrender.com/payment/add_payment', {
+      const response = await fetch('https://gamingbackend-26xx.onrender.com/payment/add_payment', {
         method: 'POST',
         body: formData, // Use formData instead of JSON
         // Do not include 'Content-Type' in the headers for FormData, it will be set automatically
