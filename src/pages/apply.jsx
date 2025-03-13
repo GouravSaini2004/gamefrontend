@@ -29,7 +29,7 @@ const CompetitionForm = () => {
     const fetchGame = async () => {
       setLoading1(true)
       try {
-        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/game/get_game/${id}`);
+        const response = await fetch('https://gamingbackend-26xx.onrender.com/game/get_game/${id}`);
 
         // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
@@ -79,7 +79,7 @@ const CompetitionForm = () => {
     // }
     try {
       // Send formData to the API
-      const response = await fetch('https://gamingbackend-dkf6.onrender.com/player/add_player', {
+      const response = await fetch('https://gamingbackend-26xx.onrender.com/player/add_player', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
