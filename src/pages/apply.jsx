@@ -29,7 +29,7 @@ const CompetitionForm = () => {
     const fetchGame = async () => {
       setLoading1(true)
       try {
-        const response = await fetch('https://gamingbackend-26xx.onrender.com/game/get_game/${id}`);
+        const response = await fetch(`https://gamingbackend-26xx.onrender.com/game/get_game/${id}`)
 
         // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
