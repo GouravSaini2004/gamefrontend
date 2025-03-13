@@ -24,7 +24,7 @@ const ForgetPasswordForm = () => {
       try {
         setLoading(true);
         // Send a POST request to send OTP
-        const response = await fetch('https://gamingbackend-dkf6.onrender.com/user/send_otp', {
+        const response = await fetch('https://gamingbackend-26xx.onrender.com/user/send_otp', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const ForgetPasswordForm = () => {
       try {
         setLoading(true);
         const token = Cookies.get("token");
-        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/user/verify_otp`, {
+        const response = await fetch(`https://gamingbackend-26xx.onrender.com/user/verify_otp`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const ForgetPasswordForm = () => {
     } else if (step === 3) {
       try {
         setLoading(true);
-        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/user/generate_password`, {
+        const response = await fetch(`https://gamingbackend-26xx.onrender.com/user/generate_password`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
