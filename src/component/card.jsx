@@ -33,7 +33,7 @@ function Card() {
     const toggleStatus = async (gameId) => {
         setLoadingUpdate(true);
         try {
-            const response = await fetch(`https://gamingbackend-dkf6.onrender.com/game/update_game/${gameId}`, {
+            const response = await fetch(`https://gamingbackend-26xx.onrender.com/game/update_game/${gameId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ function Card() {
         const fetchUser = async () => {
             setLoadingGames(true); // Start loading when the function is called
             try {
-                const response = await fetch(`https://gamingbackend-dkf6.onrender.com/game/get_game`);
+                const response = await fetch(`https://gamingbackend-26xx.onrender.com/game/get_game`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch games");
                 }
