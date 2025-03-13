@@ -21,7 +21,7 @@ const CardsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://gamingbackend-dkf6.onrender.com/payment/get_payment'); // Replace with your API endpoint
+                const response = await fetch('https://gamingbackend-26xx.onrender.com/payment/get_payment'); // Replace with your API endpoint
                 const result = await response.json();
                 if (!response.ok) {
                     alert(result.msg)
