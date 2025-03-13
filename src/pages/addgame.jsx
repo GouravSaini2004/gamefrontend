@@ -37,7 +37,7 @@ const AddGame = () => {
     setLoading(true)
 
     try {
-      const response = await fetch('`https://gamingbackend-26xx.onrender.com/game/add_game', {
+      const response = await fetch('https://gamingbackend-26xx.onrender.com/game/add_game', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
