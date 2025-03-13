@@ -14,7 +14,7 @@ const UserProfile = () => {
     const fetchUser = async () => {
       setLoading(true)
       try {
-        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_player/${use._id}`);
+        const response = await fetch(`https://gamingbackend-26xx.onrender.com/player/get_player/${use._id}`);
 
         // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
