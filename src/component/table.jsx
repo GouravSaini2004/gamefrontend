@@ -26,7 +26,7 @@ const GameTable = () => {
     const fetchUser = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`https://gamingbackend-dkf6.onrender.com/player/get_players`);
+        const response = await fetch(`https://gamingbackend-26xx.onrender.com/player/get_players`);
         const data = await response.json();
         // Check if the response is ok (status in the range 200-299)
         if (!response.ok) {
@@ -57,7 +57,7 @@ const GameTable = () => {
     // console.log(`Updated item ID: ${itemId}, New Status: ${newStatus}`)
       try{
         setLoading(true)
-        const response =  await fetch(`https://gamingbackend-dkf6.onrender.com/player/update_player/${itemId}`, {
+        const response =  await fetch(`https://gamingbackend-26xx.onrender.com/player/update_player/${itemId}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
