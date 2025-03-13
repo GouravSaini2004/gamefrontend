@@ -17,7 +17,7 @@ function Register() {
     const handleRegister = async () => {
         try {
             setLoading(true);
-            const response = await fetch('https://gamingbackend-dkf6.onrender.com/user/register', {
+            const response = await fetch('https://gamingbackend-26xx.onrender.com/user/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
