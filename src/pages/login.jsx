@@ -25,7 +25,7 @@ function Login() {
     const handleLogin = async () => {
         setLoading(true)
         try {
-            const response = await fetch('https://gamingbackend-dkf6.onrender.com/user/login', { // Adjust the URL as necessary
+            const response = await fetch('https://gamingbackend-26xx.onrender.com/user/login', { // Adjust the URL as necessary
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
